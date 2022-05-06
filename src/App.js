@@ -1,23 +1,34 @@
-import logo from './logo.svg';
+import {Button} from './components/Button';
 import './App.css';
+import {useEffect, useState} from 'react'
+
 
 function App() {
+
+  const [theme, setTheme] = useState("dark")
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App"  theme = {theme}>
+     
+      <h3>count:0</h3>
+      <h3>theme is {theme}</h3>
+      
+      <Button 
+       theme = {theme} onClick ={()=>{
+        alert("clicked click me")
+      }}>click me</Button>
+
+      <Button onClick ={()=>{
+        alert("clicked sign me")
+      }}>sign in</Button>
+
+      <Button>login</Button>
+      <br></br>
+      <Button  
+        onClick = {() =>{
+         
+          setTheme(theme === "light" ? "dark" : "light")
+        }}
+        >change theme</Button>
     </div>
   );
 }
